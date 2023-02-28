@@ -16,7 +16,7 @@
                 @foreach ($types as $type)
                     <tr>
                         <th scope="row">{{ $type->id }}</th>
-                        <td>{{ $type->title }}</td>
+                        <td>{{ $type->name }}</td>
                         <td class="d-flex justify-content-between px-5">
                             <a class="btn btn-sm btn-primary" href="{{route('admin.types.show', $type->id)}}"><i class="fa-solid fa-eye"></i></a>
                             <a class="btn btn-sm btn-success" href="{{route('admin.types.edit', $type->id)}}"><i class="fa-solid fa-pencil"></i></a>
