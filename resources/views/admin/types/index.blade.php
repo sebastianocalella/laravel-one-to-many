@@ -5,10 +5,10 @@
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
-                    <th scope="col">#id</th>
-                    <th scope="col">name</th>
-                    <th class="text-center" scope="col">
-                        <a class="btn btn-sm btn-primary w-100" href="{{route('admin.types.create')}}"><i class="fa-solid fa-plus"></i> Create new element</a>
+                    <th scope="col-3">#id</th>
+                    <th scope="col-3">name</th>
+                    <th class="text-end" scope="col">
+                        <a class="btn btn-sm btn-primary w-50 me-4" href="{{route('admin.types.create')}}"><i class="fa-solid fa-plus"></i> Create new element</a>
                     </th>
                 </tr>
             </thead>
@@ -17,9 +17,9 @@
                     <tr>
                         <th scope="row">{{ $type->id }}</th>
                         <td>{{ $type->name }}</td>
-                        <td class="d-flex justify-content-between px-5">
+                        <td class="d-flex justify-content-end px-5">
                             <a class="btn btn-sm btn-primary" href="{{route('admin.types.show', $type->id)}}"><i class="fa-solid fa-eye"></i></a>
-                            <a class="btn btn-sm btn-success" href="{{route('admin.types.edit', $type->id)}}"><i class="fa-solid fa-pencil"></i></a>
+                            <a class="btn btn-sm btn-success mx-3" href="{{route('admin.types.edit', $type->id)}}"><i class="fa-solid fa-pencil"></i></a>
                             <form class="d-inline" action="{{route('admin.types.destroy', $type->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
