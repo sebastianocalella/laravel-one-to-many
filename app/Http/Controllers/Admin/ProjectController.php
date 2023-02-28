@@ -19,13 +19,15 @@ class ProjectController extends Controller
         'title' => 'required|unique:projects',
         'slug' => 'unique',
         'description' => 'required',
-        'image_path' => 'image'
+        'image_path' => 'image',
+        'type_id' => 'required|exists:types,id'
     ];
 
     protected $validationRules = [
         'title' => ['required'],
         'slug' => 'unique:projects',
-        'description' => 'required'
+        'description' => 'required',
+        'type_id' => 'required|exists:types,id'
     ];
 
     /**
