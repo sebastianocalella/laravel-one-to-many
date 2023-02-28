@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Admin\TypeController as AdminTypeController;
 use App\Http\Controllers\Guest\PostController as GuestPostController;
 use App\Http\Controllers\Guest\ProjectController as GuestProjectController;
 use App\Http\Controllers\ProfileController;
@@ -34,6 +35,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     function(){
         Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
         Route::resource('/posts', AdminPostController::class);
+
+        Route::resource('/types', AdminTypeController::class);
 
         Route::get('/projects/trashed', [AdminProjectController::class, 'trashed'])->name('projects.trashed');
         Route::post('/projects/{project}/restore', [AdminProjectController::class, 'restore'])->name('projects.restore');
