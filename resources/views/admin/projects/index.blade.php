@@ -18,7 +18,8 @@
                     <th scope="col">Type</th>
                     <th scope="col">last modification</th>
                     <th class="text-center" scope="col">
-                        <a class="btn btn-sm btn-primary w-100" href="{{route('admin.projects.create')}}"><i class="fa-solid fa-plus"></i> Create new element</a>
+                        <a class="btn btn-sm btn-primary" href="{{route('admin.projects.create')}}"><i class="fa-solid fa-plus"></i> Create new element</a>
+                        <a class="btn btn-sm btn-danger" href="{{route('admin.projects.trashed')}}">trash</a>
                     </th>
                 </tr>
             </thead>
