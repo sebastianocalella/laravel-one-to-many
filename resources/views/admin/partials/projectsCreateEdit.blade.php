@@ -10,13 +10,22 @@
         @method($method)
         <h3>Author: {{Auth::user()->name}}</h3>
         <div class="form-group col-8">
-            <label for="project-title" class="form-label">post title:</label>
+            <label for="project-title" class="form-label">projectt title:</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="project-title" placeholder="insert project title here" name="title" value="{{old('title', $project->title)}}">
             @error('title')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
             @enderror
+        </div>
+
+        <div class="form-group col-2 mt-3">
+            <label for="project-type" class="form-label"> project-type:</label>
+            <select class="form-control" name="type_id" id="project-type">
+                @foreach ($types as $type)
+                    <option value="{{$type->id}}">{{$type->name}}</option>
+                @endforeach
+            </select>
         </div>
 
         <div class="form-group my-3">
