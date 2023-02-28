@@ -15,6 +15,7 @@
                     <th scope="col">#id</th>
                     <th scope="col">Title</th>
                     <th scope="col">Author</th>
+                    <th scope="col">Type</th>
                     <th scope="col">last modification</th>
                     <th class="text-center" scope="col">
                         <a class="btn btn-sm btn-primary w-100" href="{{route('admin.projects.create')}}"><i class="fa-solid fa-plus"></i> Create new element</a>
@@ -27,6 +28,7 @@
                         <th scope="row">{{ $project->id }}</th>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->author }}</td>
+                        <td>{{$types[$project->type_id - 1]->name}}</td>
                         <td>{{ $project->modification_date }}</td>
                         <td class="d-flex justify-content-between px-5">
                             <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project->slug)}}"><i class="fa-solid fa-eye"></i></a>
