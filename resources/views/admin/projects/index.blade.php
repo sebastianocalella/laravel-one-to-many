@@ -28,7 +28,7 @@
                         <th scope="row">{{ $project->id }}</th>
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->author }}</td>
-                        <td>{{$types[$project->type_id - 1]->name}}</td>
+                        <td>{{ $project->type->name }}</td>
                         <td>{{ $project->modification_date }}</td>
                         <td class="d-flex justify-content-between px-5">
                             <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project->slug)}}"><i class="fa-solid fa-eye"></i></a>
