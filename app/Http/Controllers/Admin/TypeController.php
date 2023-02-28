@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Models\Type;
 
 class TypeController extends Controller
 {
+
+    protected $validationRules = [
+        'name' => 'required|min:3|max:60',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +32,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create', ['type' => new Type()]);
     }
 
     /**
@@ -37,41 +43,50 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate($this->validationRules);
+        $newType = new Type();
+        $newType->fill($data);
+        $newType->save();
+
+        return redirect()->route('admin.types.index')->with('message',"Type $newType->name has benn created succesfully");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Type $type
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Type $type
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit',['type' => $type]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Type $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Type $type)
     {
-        //
+        $updateValidation = $this->validationRules;
+        array_push($updateValidation, Rule::unique('types')->ignore($type->id));
+        $data = $request->validate($this->validationRules);
+        $type->update($data);
+        return redirect()->route('admin.types.show', compact('type'));
     }
 
     /**
