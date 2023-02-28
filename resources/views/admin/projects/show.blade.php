@@ -4,10 +4,10 @@
     <div class="container my-5">
         <div class="card text-white bg-dark text-center">
             <div class="card-header">
-                {{$project->author}}
+                <h2>{{$project->title}}</h2>
             </div>
             <div class="card-body">
-                <h5 class="card-title">{{$project->id}} {{$project->title}}</h5>
+                <h3 class="card-title"><span class="text-secondary">designed by: </span>{{$project->author}} <span class="text-secondary"> --- a </span>{{$project->type->name}} <span class="text-secondary">project</span></h3>
                 <div class="card-image">
                     @if (str_starts_with($project->image_path, 'http'))
                         <img src="{{$project->image_path}}"
