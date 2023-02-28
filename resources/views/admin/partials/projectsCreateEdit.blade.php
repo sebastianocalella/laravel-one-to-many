@@ -23,7 +23,7 @@
             <label for="project-type" class="form-label"> project-type:</label>
             <select class="form-control" name="type_id" id="project-type">
                 @foreach ($types as $type)
-                    <option value="{{$type->id}}">{{$type->name}}</option>
+                    <option value="{{$type->id}}" {{ old('type_id', $project->type_id) ==  $type->id ? 'selected' : '' }}>{{$type->name}}</option>
                 @endforeach
             </select>
         </div>
