@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('author',30);
+            $table->string('author',80);
             $table->string('slug',80);
             $table->string('title',80);
             $table->dateTime('modification_date');
