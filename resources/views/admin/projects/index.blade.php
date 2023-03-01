@@ -12,11 +12,11 @@
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
-                    <th scope="col">#id</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Author</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">last modification</th>
+                    <th scope="col"><a href="">#id</a></th>
+                    <th scope="col"><a href="">Title</a></th>
+                    <th scope="col"><a href="">Author</a></th>
+                    <th scope="col"><a href="">Type</a></th>
+                    <th scope="col"><a href="">last modification</a></th>
                     <th class="text-center" scope="col">
                         <a class="btn btn-sm btn-primary" href="{{route('admin.projects.create')}}"><i class="fa-solid fa-plus"></i> Create new element</a>
                         <a class="btn btn-sm btn-danger" href="{{route('admin.projects.trashed')}}">trash</a>
