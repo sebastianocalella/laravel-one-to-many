@@ -44,10 +44,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('guest.posts.index')}}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('admin.posts.index')}}">Posts</a>
+                            <a class="nav-link" href="{{route('guest.projects.index')}}">Home</a>
                         </li>
                     </ul>
 
